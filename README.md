@@ -56,6 +56,11 @@ The performance_metrics functionality is used to compute useful statistics of th
 * Convert output Pandas dataframe to Spark dataframe
 * Overwrite using first dataframe, append subsequent ones, this will ensure efficient update of the final dataset
 
+This provides 7 days forecast for each store-item pair:
+
+![image](https://github.com/uddin007/retailforecast/assets/37245809/534de271-73c2-494f-ade3-225b5bcb68ca)
+
+
 
 
 
