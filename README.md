@@ -47,6 +47,15 @@ Following is the time series cross validation to measure forecast error using hi
 ### Performance evaluations
 The performance_metrics functionality is used to compute useful statistics of the prediction performance (yhat, yhat_lower, and yhat_upper compared to y), as a function of the distance from the cutoff (how far into the future the prediction was). The statistics computed are mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), mean absolute percent error (MAPE), median absolute percent error (MDAPE) and coverage of the yhat_lower and yhat_upper estimates. These are computed on a rolling window of the predictions in df_cv after sorting by horizon (ds minus cutoff).
 
+### Create forecasts by sotres and by items in production
+* Iterate through each row and identify unused store-item combinations (use each combination only once)
+* Convert filtered data to Pandas (this way whole dataset, can contain billions of records, is not converted to Pandas)
+* Create input dataset for Prophet, prophet_df
+* Calculate `periods` based on latest dataset date and target days of forecastig 
+* Run model and create output dataset
+* Convert output Pandas dataframe to Spark dataframe
+* Overwrite using first dataframe, append subsequent ones, this will ensure efficient update of the final dataset
+
 
 
 
